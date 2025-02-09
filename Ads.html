@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ad Button Test</title>
+    <title>Google Ad Button</title>
     <style>
         body {
-            text-align: center;
-            padding: 20px;
             font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #ad-container {
+            display: none; /* Hidden initially */
+            margin: 20px auto;
         }
 
         #show-ad-btn {
@@ -20,23 +25,22 @@
             cursor: pointer;
         }
 
-        #ad-container {
-            display: none; 
-            margin-top: 20px;
+        #show-ad-btn:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
 
-    <h1>Click the Button to Load an Ad!</h1>
+    <h1>Click the Button to See an Ad!</h1>
     <button id="show-ad-btn" onclick="showAd()">Show Ad</button>
 
     <div id="ad-container">
-        <!-- Google AdSense Code -->
+        <!-- Google AdSense Code Goes Here -->
         <ins class="adsbygoogle"
-             style="display:block; background-color: #f9f9f9; padding: 10px;"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXX"   <!-- Replace with your Publisher ID -->
-             data-ad-slot="1234567890"                 <!-- Replace with your Ad Slot ID -->
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXX"  <!-- Replace with your AdSense Client ID -->
+             data-ad-slot="1234567890"                <!-- Replace with your Ad Slot -->
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
     </div>
@@ -45,12 +49,8 @@
     <script>
         function showAd() {
             const adContainer = document.getElementById('ad-container');
-            adContainer.style.display = 'block'; // Show the ad container
-            try {
-                (adsbygoogle = window.adsbygoogle || []).push({}); // Request the ad
-            } catch (e) {
-                console.error('Ad failed to load:', e);
-            }
+            adContainer.style.display = 'block'; // Show the ad
+            (adsbygoogle = window.adsbygoogle || []).push({}); // Load the ad
         }
     </script>
 
