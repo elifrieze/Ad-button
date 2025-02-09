@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Button Test</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        #show-ad-btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #ad-container {
+            display: none; 
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Click the Button to Load an Ad!</h1>
+    <button id="show-ad-btn" onclick="showAd()">Show Ad</button>
+
+    <div id="ad-container">
+        <!-- Google AdSense Code -->
+        <ins class="adsbygoogle"
+             style="display:block; background-color: #f9f9f9; padding: 10px;"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXX"   <!-- Replace with your Publisher ID -->
+             data-ad-slot="1234567890"                 <!-- Replace with your Ad Slot ID -->
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        function showAd() {
+            const adContainer = document.getElementById('ad-container');
+            adContainer.style.display = 'block'; // Show the ad container
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({}); // Request the ad
+            } catch (e) {
+                console.error('Ad failed to load:', e);
+            }
+        }
+    </script>
+
+</body>
+</html>
